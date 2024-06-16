@@ -1,0 +1,2 @@
+Bot = "TG_AtomicEyes_bot"
+BOT_TOKEN = "6772805594:AAGxTy97o0XriqHe1ZhhBGGLE63ZUABm__U"
