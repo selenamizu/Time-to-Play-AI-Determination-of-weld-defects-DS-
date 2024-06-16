@@ -166,10 +166,7 @@ def clear_next_step_handler(_, message_tg):
 # Functions for message
 def check(from_message):
     botMessage = message_check.old_line(from_message)
-    try:
-        bot.register_next_step_handler(botMessage, check_processing_decorator(botMessage))
-    except Exception as e:
-        print(e)
+    bot.register_next_step_handler(botMessage, check_processing_decorator(botMessage))
     return True
 
 
@@ -179,7 +176,10 @@ def check_processing_decorator(botMessage):
 
         Message.userSendLogger(message_tg, "<FILE>")
         botMessage = message_check_processing.old_line(botMessage)
-        bot.delete_message(message_tg.chat.id, message_tg.id)
+        try:
+            bot.delete_message(message_tg.chat.id, message_tg.id)
+        except:
+            pass
 
         try:
             # Получаем файл фото
